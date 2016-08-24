@@ -36,6 +36,15 @@ angular.module('edhDraftApp')
         method: "GET",
         url: rootUrl + "/typeahead?format=commander&q=" + searchString
       }).then(function(response){
+        service.data.matchingCards = response.data;
+      });
+    };
+
+    service.searchCommanderCards = function(searchString){
+      $http({
+        method: "GET",
+        url: rootUrl + "?format=commander&name=" + searchString
+      }).then(function(response){
         console.log(response);
         service.data.matchingCards = response.data;
       });
