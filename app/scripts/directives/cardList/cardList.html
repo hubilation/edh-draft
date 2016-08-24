@@ -1,0 +1,8 @@
+<div>
+    <input type="text" ng-model="vm.data.searchString" ng-change="vm.updateSearch()"/>
+    <ul>
+        <li ng-repeat="card in vm.cardService.data.matchingCards">
+            {{card.name}}
+        </li>
+    </ul>
+</div>

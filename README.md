@@ -1,7 +1,6 @@
 # edh-draft
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+assist with edh league drafting
 
 ## Build & development
 
