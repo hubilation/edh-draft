@@ -26,7 +26,7 @@ function CardListController (cardService) {
     };
 
     vm.updateSearch = function(){
-      cardService.searchCommanderCards(vm.data.searchString);
+      cardService.searchCard(vm.data.searchString);
     }
 
     activate();
