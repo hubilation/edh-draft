@@ -19,7 +19,8 @@ angular.module('edhDraftApp')
 
 
     service.data = {
-      matchingCards: []
+      matchingCards: [],
+      selectedCards: []
     };
 
     service.getCards = function(){
@@ -38,15 +39,29 @@ angular.module('edhDraftApp')
       }).then(function(response){
         removeDisallowedCards(response.data);
         service.data.matchingCards = response.data;
+        console.log(response.data);
       });
     };
 
     function removeDisallowedCards(cards){
+
+      var indexesToRemove = [];
+
       for(var i = 0, len = cards.length; i < len; i++){
         if(!isCommanderLegal(cards[i])){
-          cards.splice(i, 1);
+          indexesToRemove.push(i);
         }
       }
+
+      if(indexesToRemove.length > 0){
+        var reverseOrder = indexesToRemove.reverse();
+
+        for(var i = 0, len = reverseOrder.length; i < len; i++){
+          var indexToRemove = reverseOrder[i];
+          cards.splice(indexToRemove, 1);
+        }
+      }
+
     }
 
     function isCommanderLegal(card){
@@ -54,10 +69,14 @@ angular.module('edhDraftApp')
         return false;
       }
       return true;
-    }
+    };
 
     function isAlreadyPicked(card){
       return false;
+    };
+
+    service.selectCard = function(card){
+      service.data.selectedCards.push(card);
     }
 
     return service;

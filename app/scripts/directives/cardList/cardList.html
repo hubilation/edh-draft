@@ -1,8 +1,10 @@
 <div>
     <input type="text" ng-model="vm.data.searchString" ng-change="vm.updateSearch()"/>
     <ul>
-        <li ng-repeat="card in vm.cardService.data.matchingCards">
-            {{card.name}}
+        <li class="beleren" ng-repeat="card in vm.cardService.data.matchingCards" ng-click="vm.selectCard()">
+            {{card.name}} <mana-cost cmc="{{card.cost}}"></mana-cost>
         </li>
     </ul>
+    <i class="ms ms-w ms-cost ms-shadow">
+
 </div>

@@ -1,3 +1,12 @@
+
+  /* definition */
+  @font-face {
+    font-family: Beleren;
+    src: url('../fonts/beleren-bold-webfont.tff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -79,5 +88,10 @@ body {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+  }
+
+
+  .beleren{
+    font-family: Beleren, Tahoma, serif
   }
 }
